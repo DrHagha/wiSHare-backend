@@ -3,7 +3,7 @@ from sqlalchemy.orm import relationship
 
 from database import Base
 
-
+#결제상태
 class Pay(Base):
     __tablename__ = "paies"
 

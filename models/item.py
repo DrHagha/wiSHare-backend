@@ -3,7 +3,7 @@ from sqlalchemy.orm import relationship
 
 from database import Base
 
-
+#상품
 class Item(Base):
     __tablename__ = "items"
 
