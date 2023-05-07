@@ -4,8 +4,8 @@ from sqlalchemy.orm import relationship
 from database import Base
 
 
-class User(Base):
-    __tablename__ = "users"
+class Member(Base):
+    __tablename__ = "members"
 
     pk = Column(Integer, primary_key=True, index=True)
     group_id = Column(Integer, index=True)
@@ -21,3 +21,8 @@ class User(Base):
     send_item = relationship("Pay", back_populates="sender")
     recive_item = relationship("Pay", back_populates="reciver")
     my_addresses = relationship("ShippingAddress", back_populates="owner")
+    
+    i_am_representative = relationship("Brand", back_populates="brand_admin")
+    
+    friend_caller = relationship("Friend", back_populates = "member1")
+    friend_reciver = relationship("Friend", back_populates = "member2")

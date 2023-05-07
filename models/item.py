@@ -7,7 +7,7 @@ from database import Base
 class Item(Base):
     __tablename__ = "items"
 
-    id = Column(Integer, primary_key=True, index=True)
+    pk = Column(Integer, primary_key=True, index=True)
     name = Column(String, index=True)
     category = Column(String, index=True)
     description = Column(String)
@@ -18,5 +18,5 @@ class Item(Base):
     stock = Column(Integer())
     seller_id = Column(Integer, ForeignKey("brands.id"))
 
-    seller = relationship("Brand", back_populates="selling_items")
+    selling_brand = relationship("Brand", back_populates="selling_items")
     i_am_wished = relationship("Wish", back_populates="wished_item")

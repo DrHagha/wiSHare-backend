@@ -10,7 +10,8 @@ class ShippingAddress(Base):
     id = Column(Integer, primary_key=True, index=True)
     address = Column(String)
     zip_code = Column(String)
-    user_id = Column(String, ForeignKey("users.id"))
+    member_id = Column(String, ForeignKey("members.id"))
 
     shipping = relationship("Shipping", back_populates="pay_info")
-    owner = relationship("User", back_populates="my_addresses")
+    owner = relationship("Member", back_populates="my_addresses")
+    paying_item = relationship("Pay", back_populates = "destination")
