@@ -7,10 +7,10 @@ from database import Base
 class ShippingAddress(Base):
     __tablename__ = "shipping_addresses"
 
-    id = Column(Integer, primary_key=True, index=True)
+    pk = Column(Integer, primary_key=True, index=True)
     address = Column(String)
     zip_code = Column(String)
-    member_id = Column(String, ForeignKey("members.id"))
+    member_id = Column(String, ForeignKey("members.pk"))
 
     shipping = relationship("Shipping", back_populates="pay_info")
     owner = relationship("Member", back_populates="my_addresses")

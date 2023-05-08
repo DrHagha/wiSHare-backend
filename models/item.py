@@ -16,7 +16,7 @@ class Item(Base):
     hit = Column(Integer, index=True)
     is_soldout = Column(Boolean)
     stock = Column(Integer())
-    seller_id = Column(Integer, ForeignKey("brands.id"))
+    seller_id = Column(Integer, ForeignKey("brands.pk"))
 
     selling_brand = relationship("Brand", back_populates="selling_items")
     i_am_wished = relationship("Wish", back_populates="wished_item")

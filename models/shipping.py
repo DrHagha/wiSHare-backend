@@ -8,7 +8,7 @@ class Shipping(Base):
     __tablename__ = "shipping"
 
     id = Column(Integer, primary_key=True, index=True)
-    pay_id = Column(Integer, ForeignKey("paies.id"))
+    pay_id = Column(Integer, ForeignKey("paies.pk"))
     shipper = Column(String)
     state = Column(String)
 

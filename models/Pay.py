@@ -13,7 +13,7 @@ class Pay(Base):
     sender_id = Column(Integer, ForeignKey("members.pk"), index = True)
     received_date = Column(DateTime)
     send_date = Column(DateTime)
-    shipping_address_id = Column(Integer, ForeignKey("shipping_address.pk"))
+    shipping_address_id = Column(Integer, ForeignKey("shipping_addresses.pk"))
     zip_code = Column(String)
     payment_method = Column(String)
     state = Column(String)

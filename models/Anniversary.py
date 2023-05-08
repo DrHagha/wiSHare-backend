@@ -5,8 +5,10 @@ from database import Base
 
 # 기념일 클래스
 class Anniversary(Base):
+    __tablename__ = "anniversaries"
+    
     pk = Column(Integer, primary_key=True, index=True)
-    user = Column(Integer, ForeignKey("users.pk"))
+    user = Column(Integer, ForeignKey("members.pk"))
     date = Column(DateTime, index=True)
     comment = Column(String)
     

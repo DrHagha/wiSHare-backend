@@ -3,10 +3,18 @@ from typing import List
 from fastapi import Depends, FastAPI, HTTPException
 from sqlalchemy.orm import Session
 
-import models.Brand
+from models import Anniversary, Brand, Friend, Item, Member, Pay, Shipping, ShippingAddress, Wish
 from database import SessionLocal, engine
 
-models.Brand.Base.metadata.create_all(bind=engine)
+Member.Base.metadata.create_all(bind=engine)
+Friend.Base.metadata.create_all(bind=engine)
+Brand.Base.metadata.create_all(bind=engine)
+Item.Base.metadata.create_all(bind=engine)
+ShippingAddress.Base.metadata.create_all(bind=engine)
+Wish.Base.metadata.create_all(bind=engine)
+Shipping.Base.metadata.create_all(bind=engine)
+Anniversary.Base.metadata.create_all(bind=engine)
+Pay.Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
 
