@@ -8,7 +8,7 @@ from starlette.middleware.cors import CORSMiddleware
 from models import Anniversary, Brand, Friend, Item, Member, Pay, Shipping, ShippingAddress, Wish
 from db.database import SessionLocal, engine
 
-from api import member
+from api import member, login
 
 Member.Base.metadata.create_all(bind=engine)
 Friend.Base.metadata.create_all(bind=engine)
@@ -23,3 +23,4 @@ Pay.Base.metadata.create_all(bind=engine)
 app = FastAPI()
 
 app.include_router(member.router)
+app.include_router(login.router)

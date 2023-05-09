@@ -63,3 +63,6 @@ class Member(MemberInDBBase):
 
 class MemberInDB(MemberInDBBase):
     pass
+
+class MemberFake(Member):
+    hashed_password: str
