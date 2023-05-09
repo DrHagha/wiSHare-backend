@@ -1,7 +1,7 @@
 from sqlalchemy import Boolean, Column, ForeignKey, Integer, String, DateTime
 from sqlalchemy.orm import relationship
 
-from database import Base
+from db.database import Base
 
 
 class ShippingAddress(Base):
@@ -12,6 +12,4 @@ class ShippingAddress(Base):
     zip_code = Column(String)
     member_id = Column(String, ForeignKey("members.pk"))
 
-    shipping = relationship("Shipping", back_populates="pay_info")
-    owner = relationship("Member", back_populates="my_addresses")
-    paying_item = relationship("Pay", back_populates = "destination")
+    owner = relationship("Member", foreign_keys=[member_id])

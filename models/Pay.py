@@ -1,7 +1,7 @@
 from sqlalchemy import Boolean, Column, ForeignKey, Integer, String, DateTime
 from sqlalchemy.orm import relationship
 
-from database import Base
+from db.database import Base
 
 #결제상태
 class Pay(Base):
@@ -18,7 +18,7 @@ class Pay(Base):
     payment_method = Column(String)
     state = Column(String)
 
-    shared_wish_item = relationship("Item", back_populates="paied_item")
-    sender = relationship("Memeber", back_populates="send_item")
-    reciver = relationship("Memeer", back_populates="recive_item")
-    destination = relationship("ShippingAddress", back_populates = "paying_item")
+    shared_wish_item = relationship("Item", foreign_keys=[item_id])
+    sender = relationship("Member", foreign_keys=[sender_id])
+    reciver = relationship("Member", foreign_keys=[receiver_id])
+    destination = relationship("ShippingAddress", foreign_keys = [shipping_address_id])

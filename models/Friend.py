@@ -1,7 +1,7 @@
 from sqlalchemy import Boolean, Column, ForeignKey, Integer, String, DateTime
 from sqlalchemy.orm import relationship
 
-from database import Base
+from db.database import Base
 
 #친구관계 클래스
 class Friend(Base):
@@ -12,6 +12,6 @@ class Friend(Base):
     receiver_id = Column(Integer, ForeignKey("members.pk"), index = True)
     state = Column(String, primary_key = True, index = True)
     
-    member1 = relationship("Member", back_populates = "friend_caller")
-    member2 = relationship("Member", back_populates = "friend_reciver")
+    member1 = relationship("Member", foreign_keys = [caller_id])
+    member2 = relationship("Member", foreign_keys = [receiver_id])
     

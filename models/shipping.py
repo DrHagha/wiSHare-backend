@@ -1,7 +1,7 @@
 from sqlalchemy import Boolean, Column, ForeignKey, Integer, String, DateTime
 from sqlalchemy.orm import relationship
 
-from database import Base
+from db.database import Base
 
 
 class Shipping(Base):
@@ -12,4 +12,4 @@ class Shipping(Base):
     shipper = Column(String)
     state = Column(String)
 
-    pay_info = relationship("Pay", back_populates="shipping")
+    pay_info = relationship("Pay", foreign_keys=[pay_id])

@@ -1,7 +1,7 @@
 from sqlalchemy import Boolean, Column, ForeignKey, Integer, String, DateTime
 from sqlalchemy.orm import relationship
 
-from database import Base
+from db.database import Base
 
 
 class Wish(Base):
@@ -9,8 +9,8 @@ class Wish(Base):
 
     id = Column(Integer, primary_key=True, index=True)
     item_id = Column(Integer, ForeignKey("items.pk"))
-    user_id = Column(Integer, ForeignKey("members.pk"))
+    member_id = Column(Integer, ForeignKey("members.pk"))
     is_open = Column(Boolean)
 
-    wished_item = relationship("Item", back_populates="i_am_wished")
-    wishing_user = relationship("Member", back_populates="my_wish")
+    wished_item = relationship("Item", foreign_keys=[item_id])
+    wishing_user = relationship("Member", foreign_keys=[member_id])
