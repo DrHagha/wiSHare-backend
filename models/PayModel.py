@@ -7,13 +7,13 @@ from db.database import Base
 class Pay(Base):
     __tablename__ = "paies"
 
-    pk = Column(Integer, primary_key=True, index=True)
-    item_id = Column(Integer, ForeignKey("items.pk"))
-    receiver_id = Column(Integer, ForeignKey("members.pk"), index = True)
-    sender_id = Column(Integer, ForeignKey("members.pk"), index = True)
+    id = Column(Integer, primary_key=True, index=True)
+    item_id = Column(Integer, ForeignKey("items.id"))
+    receiver_id = Column(Integer, ForeignKey("members.id"), index = True)
+    sender_id = Column(Integer, ForeignKey("members.id"), index = True)
     received_date = Column(DateTime)
     send_date = Column(DateTime)
-    shipping_address_id = Column(Integer, ForeignKey("shipping_addresses.pk"))
+    shipping_address_id = Column(Integer, ForeignKey("shipping_addresses.id"))
     zip_code = Column(String)
     payment_method = Column(String)
     state = Column(String)

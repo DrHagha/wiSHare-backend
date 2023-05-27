@@ -7,13 +7,13 @@ from db.database import Base
 class Brand(Base):
     __tablename__ = "brands"
 
-    pk = Column(Integer, primary_key=True, index=True)
-    agent_id = Column(Integer, ForeignKey("members.pk"))
+    id = Column(Integer, primary_key=True, index=True)
     name = Column(String, unique=True, index=True)
     category = Column(String, index=True)
     description = Column(String)
-    profile_image = Column(String)
+    profile_image_path = Column(String)
     company_registration_number = Column(String)
     address = Column(String)
 
-    brand_admin = relationship("Member", foreign_keys= [agent_id])
+    brand_admin_id = Column(Integer, ForeignKey("members.id"))
+    brand_admin = relationship("Member", backref="charging_brand")

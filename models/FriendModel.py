@@ -7,9 +7,9 @@ from db.database import Base
 class Friend(Base):
     __tablename__ = "friends"
     
-    pk = Column(Integer, primary_key=True, index=True)
-    caller_id = Column(Integer, ForeignKey("members.pk"), index = True)
-    receiver_id = Column(Integer, ForeignKey("members.pk"), index = True)
+    id = Column(Integer, primary_key=True, index=True)
+    caller_id = Column(Integer, ForeignKey("members.id"), index = True)
+    receiver_id = Column(Integer, ForeignKey("members.id"), index = True)
     state = Column(String, primary_key = True, index = True)
     
     member1 = relationship("Member", foreign_keys = [caller_id])

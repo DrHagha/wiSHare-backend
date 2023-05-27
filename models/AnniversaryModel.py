@@ -7,8 +7,8 @@ from db.database import Base
 class Anniversary(Base):
     __tablename__ = "anniversaries"
     
-    pk = Column(Integer, primary_key=True, index=True)
-    member = Column(Integer, ForeignKey("members.pk"))
+    id = Column(Integer, primary_key=True, index=True)
+    member = Column(Integer, ForeignKey("members.id"))
     date = Column(DateTime, index=True)
     comment = Column(String)
     

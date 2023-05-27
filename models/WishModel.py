@@ -8,8 +8,8 @@ class Wish(Base):
     __tablename__ = "wishes"
 
     id = Column(Integer, primary_key=True, index=True)
-    item_id = Column(Integer, ForeignKey("items.pk"))
-    member_id = Column(Integer, ForeignKey("members.pk"))
+    item_id = Column(Integer, ForeignKey("items.id"))
+    member_id = Column(Integer, ForeignKey("members.id"))
     is_open = Column(Boolean)
 
     wished_item = relationship("Item", foreign_keys=[item_id])
