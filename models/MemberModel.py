@@ -23,7 +23,8 @@ class Member(Base):
     sec_date = Column(DateTime, nullable=True)
     is_use = Column(Boolean, nullable=False, default=True)
     
-    def to_info(member : MemberSchema.Base):
+    #관계 정의
+    def to_info(member):
         group_str = ""
         if member.group_id == 1:
             group_str = "관리자"

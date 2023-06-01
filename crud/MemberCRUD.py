@@ -12,13 +12,13 @@ def get_member_list(db: Session):
         .all()
     return member_list
 
-def get_detail(db : Session, member_id : int):
-    member = db.query(Member).get(member_id)
-    return member
-
 def get_by_login_id(db : Session, login_id : str):
     member = db.query(Member).filter(Member.login_id == login_id).first()
     print(member.name)
+    return member
+
+def get_detail(db : Session, id : int):
+    member = db.query(Member).filter(Member.id == id).first()
     return member
 
 def create_member(db : Session, member : MemberSchema.CreateRequest):
@@ -35,3 +35,4 @@ def create_member(db : Session, member : MemberSchema.CreateRequest):
     db.add(db_member)
     db.commit()
     return db_member
+

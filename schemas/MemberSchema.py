@@ -52,3 +52,12 @@ class Token(Base):
     access_token : str
     token_type : str
     name : str
+    
+class AgentCase(Base):
+    group_id : int
+    group : str
+    login_id : str
+    name : str
+    gender : str
+    birthday : datetime.datetime
+    reg_date : datetime.datetime
