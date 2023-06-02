@@ -53,7 +53,7 @@ class Token(Base):
     token_type : str
     name : str
     
-class AgentCase(Base):
+class BrandAdminCase(Base):
     group_id : int
     group : str
     login_id : str
