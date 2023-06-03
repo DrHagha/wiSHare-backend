@@ -2,6 +2,8 @@ from pydantic import BaseModel
 from typing import Optional
 from sqlalchemy.orm import relationship
 
+from schemas import BrandSchema
+
 class Base(BaseModel):
     id : Optional[int] = None
     name : Optional[str] = None
@@ -22,4 +24,16 @@ class CreatRequest(Base):
     price : int
     category : str
     description : str
-    selling_brand_id :int
+    #나중에 사진 추가 필요
+    
+class Info(Base):
+    id : int
+    name : str
+    price : int
+    category :str
+    profile_image_path : Optional[str] = None
+    description : str
+    hit : int
+    stock : int
+    is_soldout : bool
+    selling_brand : BrandSchema.SimpleInfo

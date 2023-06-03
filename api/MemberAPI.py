@@ -20,7 +20,6 @@ router = APIRouter(
 )
 
 
-#이거 만들고 있었음
 def get_member_by_token(db : Session = Depends(get_db), token : str = Depends(oauth2_scheme)):
     credentials_exception = HTTPException(
         status_code=status.HTTP_401_UNAUTHORIZED,

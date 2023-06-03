@@ -27,25 +27,34 @@ class Brand(Base):
 
 
 
-    def to_info(brand):
+    def to_info(self):
         
-        member = brand.brand_admin
+        member = self.brand_admin
         
         member_info = MemberModel.Member.to_info(member = member)
         
         response_member = BrandSchema.Info(
-            id = brand.id,
-            name = brand.name,
-            category = brand.category,
-            description= brand.description,
-            profile_image_path=brand.profile_image_path,
-            company_registration_number = brand.company_registration_number,
-            address=brand.address,
+            id = self.id,
+            name = self.name,
+            category = self.category,
+            description= self.description,
+            profile_image_path=self.profile_image_path,
+            company_registration_number = self.company_registration_number,
+            address=self.address,
             brand_admin = member_info
         )
         return response_member
     
     
-    def to_info_list(brand_list : list[BrandSchema.Info]):
+    def to_info_list(brand_list : list['Brand']):
         info_list = [Brand.to_info(brand) for brand in brand_list]
         return info_list
+    
+    def to_simple_info(self):
+        simple_info = BrandSchema.SimpleInfo(
+            id = self.id,
+            name = self.name,
+            category= self.category
+        )
+        return simple_info
+        

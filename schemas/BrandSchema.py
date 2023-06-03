@@ -26,7 +26,9 @@ class Info(Base):
     brand_admin : MemberSchema.Info
     
 class SimpleInfo(Base):
-    pass
+    id : int
+    name : str
+    category : str
     
 class CreateRequest(Base):
     name : str

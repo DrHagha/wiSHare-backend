@@ -26,3 +26,7 @@ def create_brand(db : Session, member : Member, new_brand : BrandSchema.CreateRe
     db.add(db_brand)
     db.commit()
     return Brand.to_info(db_brand)
+
+def get_brand_by_agent(db : Session, agent : Member):
+    brand = db.query(Brand).filter(Brand.brand_admin_id == agent.id).first()
+    return brand
