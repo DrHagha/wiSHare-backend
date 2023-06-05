@@ -23,5 +23,5 @@ def get_brand_list(db : Session = Depends(get_db)):
 
 @router.post("/create", response_model= BrandSchema.Info)
 def create_brand(new_brand : BrandSchema.CreateRequest, member : Member = Depends(get_member_by_token), db : Session = Depends(get_db)):
-    saved_brand = BrandCRUD.create_brand(db, member=member , new_brand = new_brand)
+    saved_brand = BrandCRUD.create_brand(db = db, member=member , new_brand = new_brand)
     return Brand.to_info(saved_brand)

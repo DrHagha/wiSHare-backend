@@ -23,6 +23,8 @@ class Member(Base):
     sec_date = Column(DateTime, nullable=True)
     is_use = Column(Boolean, nullable=False, default=True)
     
+    
+    
     #관계 정의
     def to_info(member):
         group_str = ""

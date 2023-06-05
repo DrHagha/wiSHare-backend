@@ -47,7 +47,7 @@ class Brand(Base):
     
     
     def to_info_list(brand_list : list['Brand']):
-        info_list = [Brand.to_info(brand) for brand in brand_list]
+        info_list = [brand.to_info() for brand in brand_list]
         return info_list
     
     def to_simple_info(self):

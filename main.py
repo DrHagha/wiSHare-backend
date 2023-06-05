@@ -7,7 +7,7 @@ from starlette.middleware.cors import CORSMiddleware
 
 from db.database import SessionLocal, engine
 
-from api import MemberAPI, BrandAPI, ItemAPI
+from api import MemberAPI, BrandAPI, ItemAPI, FriendAPI
 
 app = FastAPI()
 
@@ -15,3 +15,4 @@ app = FastAPI()
 app.include_router(MemberAPI.router)
 app.include_router(BrandAPI.router)
 app.include_router(ItemAPI.router)
+app.include_router(FriendAPI.router)

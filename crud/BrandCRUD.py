@@ -1,5 +1,4 @@
 from sqlalchemy.orm import Session
-from passlib.context import CryptContext
 
 from models.BrandModel import Brand
 from models.MemberModel import Member
