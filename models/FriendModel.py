@@ -32,6 +32,7 @@ class Friend(Base):
             id = self.id,
             caller_id= self.caller_id,
             caller= caller_info,
+            receiver_id=self.receiver_id,
             receiver= receiver_info,
             state= self.state
         )

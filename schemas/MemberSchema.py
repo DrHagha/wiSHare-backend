@@ -51,7 +51,7 @@ class Info(Base):
 class Token(Base):
     access_token : str
     token_type : str
-    name : str
+    login_id : str
     
 class BrandAdminCase(Base):
     group_id : int

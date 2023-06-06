@@ -23,4 +23,6 @@ def get_my_friend_list(db : Session = Depends(get_db), member : MemberModel.Memb
 @router.post("/create", response_model=FriendSchema.Info)
 def create_friend(new_freind : FriendSchema.CreateRequest, db : Session = Depends(get_db), member : MemberModel.Member = Depends(get_member_by_token)):
     saved_friend = FriendCRUD.create_friend(db = db, member = member, new_friend = new_freind)
-    return saved_friend.to_info()
+    print("VV")
+    print(saved_friend)
+    return saved_friend

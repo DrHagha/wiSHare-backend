@@ -61,7 +61,7 @@ def login(form_data : OAuth2PasswordRequestForm = Depends(), db:Session = Depend
             headers={"WWW-Authenticate": "Bearer"},
         )
     data = {
-        "sub": member.name,
+        "sub": member.login_id,
         "exp": datetime.utcnow() + timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)
     }
     access_token = jwt.encode(data, SECRET_KEY, algorithm=ALGORITHM)

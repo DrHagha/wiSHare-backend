@@ -13,8 +13,9 @@ def get_member_list(db: Session):
     return member_list
 
 def get_by_login_id(db : Session, login_id : str):
+    print(login_id)
     member = db.query(Member).filter(Member.login_id == login_id).first()
-    print(member.name)
+    print(member)
     return member
 
 def get_detail(db : Session, id : int):
