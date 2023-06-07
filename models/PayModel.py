@@ -14,7 +14,6 @@ class Pay(Base):
     received_date = Column(DateTime)
     send_date = Column(DateTime)
     shipping_address_id = Column(Integer, ForeignKey("shipping_addresses.id"))
-    zip_code = Column(String)
     payment_method = Column(String)
     state = Column(String)
 
